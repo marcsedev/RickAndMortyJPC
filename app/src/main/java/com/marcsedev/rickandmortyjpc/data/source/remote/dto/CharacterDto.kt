@@ -1,5 +1,5 @@
 package com.marcsedev.rickandmortyjpc.data.source.remote.dto
-
+import com.marcsedev.rickandmortyjpc.domain.model.Character
 data class CharacterDto(
     val created: String,
     val episode: List<String>,
@@ -14,3 +14,18 @@ data class CharacterDto(
     val type: String,
     val url: String
 )
+
+//Mapping
+
+fun CharacterDto.toCharacter(): Character {
+    return Character(
+        id = id,
+        name = name,
+        status = status,
+        species = species,
+        origin = origin,
+        gender = gender,
+        location = location,
+        image = image
+    )
+}
